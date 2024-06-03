@@ -1,0 +1,91 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+  }
+
+  .foto {
+    display: block;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+    background-color: #f0f0f0;
+  }
+
+  .login-form {
+    background: white;
+    padding: 2em;
+    border-radius: 8px;
+    width: 20%;
+  }
+
+  .form-group {
+    margin-bottom: 1em;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.7em;
+    background-color: #0152a8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #003063;
+  }
+
+  .cpf {
+    color: #78797a;
+  }
+
+  .forgot {
+    color: #0152a8;
+  }
+  .forgot:hover {
+    color: #003063;
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    color: #474747;
+    font-size:smaller;
+  }
+
+  .checkbox-group input[type="checkbox"] {
+    display: center;
+    margin-right: 0.5em;
+    width: 16px;
+    height: 16px;
+  }
+
+  .agree {
+    color: #858585;
+    font-size: 80%;
+  }
+
+  .privacy {
+    color: #0152a8;
+    text-decoration: underline;
+  }
+
+  .privacy:hover {
+    color: #003063;
+  }
