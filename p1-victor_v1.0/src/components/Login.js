@@ -8,6 +8,9 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [loginAttempts, setLoginAttempts] = useState(3);
   const [loginDisabled, setLoginDisabled] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isEmailInvalid, setIsEmailInvalid] = useState(false);
+  const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
 
   useEffect(() => {
     const rememberMeStorage = localStorage.getItem('rememberMe');
@@ -46,8 +49,13 @@ const Login = () => {
 
     if (email === validEmail && password === validPassword) {
         console.log('Login bem-sucedido');
+        setErrorMessage('');
+        //irá ser encaminhado para a página da conta
     } else {
         setLoginAttempts(loginAttempts - 1);
+        setErrorMessage('Email ou senha incorretos. Tente novamente. Você tem mais ' + loginAttempts + ' tentativa(s).');
+        setIsEmailInvalid(email !== validEmail);
+        setIsPasswordInvalid(password !== validPassword);
         console.log('Login falhou. Tentativas restantes:', loginAttempts - 1);
 
       if (loginAttempts <= 1) {
@@ -67,6 +75,7 @@ const Login = () => {
             type="email"
             placeholder='CPF or E-mail'
             id="email"
+            className={isEmailInvalid ? 'input-error' : ''}
             value={email}
             onChange={handleEmailChange}
             required
@@ -80,6 +89,7 @@ const Login = () => {
             type="password"
             placeholder='Enter your password here'
             id="password"
+            className={isPasswordInvalid ? 'input-error' : ''}
             value={password}
             onChange={handlePasswordChange}
             required
@@ -99,6 +109,7 @@ const Login = () => {
         </div>
         <div className="agree">By signing in, you agree to our <div className='privacy'>Privacy Policy</div></div>
         <button type="submit" disabled={loginDisabled}>Sign in</button>
+        {errorMessage && <p className="error-message">{errorMessage}</p>} {''}
         <div className='agree'>Don't have an account? <div className='privacy'>Click here</div></div>
       </form>
       <div className='foto'>
